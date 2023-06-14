@@ -1,6 +1,6 @@
 /* global Phaser */
 
-// Copyright (c) 2023   Lucas Osmond All rights reserved
+// Copyright (c) 2020 Mr. Coxall All rights reserved
 //
 // Created by: Lucas Osmond
 // Created on: April 2023
@@ -9,21 +9,22 @@
 /**
  * This class is the splash scene.
  */
-class SplashScene extends Phaser.Scene {
+class TitleScene extends Phaser.Scene {
   /**
    * This method is the constructor.
    */
   constructor() {
-    super({ key: 'SplashScene' })
+    super({ key: 'TitleScene' })
 
-    this.splashSceneBackroundImage = null
+    this.titleSceneBackroundImage = null
+    this.titleSceneText = null
+    
   }
   
   /**
    * Can be defined on your own Scenes.
    * This method is called when the Scene is started by the SceneManager.
    *before preload() and create().
-   * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start()
     */
   init() {
     this.cameras.main.setBackgroundColor('#ffffff')
@@ -34,8 +35,8 @@ class SplashScene extends Phaser.Scene {
    * Use it to load assets
     */
   preload() {
-    console.log('Splash Scene')
-    this.load.image('splashSceneBackroundImage', './assets/splashScene.png')
+    console.log('Title Scene')
+    this.load.image('titleSceneBackroundImage', './assets/titleScene.png')
   }
 
   /**
@@ -44,12 +45,10 @@ class SplashScene extends Phaser.Scene {
    * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start()
    */
   create(data) {
-    this.splashSceneBackroundImage = this.add.sprite(
-      0, 
-      0, 
-      'splashSceneBackroundImage')
-    this.splashSceneBackroundImage.x = 1920 / 2
-    this.splashSceneBackroundImage.y = 1080 / 2
+    this.titleSceneBackroundImage = this.add
+    .sprite(0, 0, 'titleSceneBackroundImage').setScale(2.75)
+    this.titleSceneBackroundImage.x = 1920 / 2
+    this.titleSceneBackroundImage.y = 1080 / 2
   }
   
   /**
@@ -59,10 +58,10 @@ class SplashScene extends Phaser.Scene {
    * @param {number} delta - The delta time in ms since the last frame.
    */
   update(time, delta) {
-    if (time > 3000) {
-    this.scene.switch ('TitleScene')
+    if (time > 6000) {
+    this.scene.switch ('menuScene')
     }
   }
 }
 
-export default SplashScene
+export default TitleScene
