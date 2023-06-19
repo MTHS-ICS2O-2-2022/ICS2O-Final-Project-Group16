@@ -1,4 +1,4 @@
-/* Global Phaser */
+/* global Phaser */
 
 // Copyright (c) 2020 Mr. Coxall All rights reserved
 //
@@ -7,10 +7,14 @@
 // This file contains the JS functions for index.html
 
 // scene important statements
-import SplashScene from "./splashScene.js";
+import SplashScene from "./splashScene.js"
+import TitleScene from "./titleScene.js"
+import MenuScene from "./menuScene.js"
 
-// create the new Scenes
-const splashScene = new SplashScene();
+// create the new scenes
+const splashScene = new SplashScene()
+const titleScene = new TitleScene()
+const menuScene = new MenuScene()
 /**
  *Start Phaser Game
  */
@@ -21,7 +25,7 @@ const config = {
   physics: {
     default: "arcade",
     arcade: {
-      debug: false,
+      debug: true,
     },
   },
   // set background colour
@@ -30,7 +34,7 @@ const config = {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
-};
+}
 
 const game = new Phaser.Game(config)
 console.log(game)
@@ -39,6 +43,8 @@ console.log(game)
 // load the scenes
 // NOTE: remember any "key" is global and CAN NOT be reused
 game.scene.add('splashScene', splashScene)
+game.scene.add("titleScene", titleScene)
+game.scene.add("menuScene", menuScene)
 
 // start the game
 game.scene.start('SplashScene')
