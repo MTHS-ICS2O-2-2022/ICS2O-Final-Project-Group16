@@ -28,17 +28,17 @@ class GameScene extends Phaser.Scene {
   }
 
   moveBox () {
-    let xLocation = Phaser.Math.Between(100, 1920)
-    let yLocation = Phaser.Math.Between(100, 980)
+    let xLocation = Phaser.Math.Between(300,1920)
+    let yLocation = Phaser.Math.Between(300, 980)
     this.boxes.x = xLocation
     this.boxes.y = yLocation
     this.score += 1
   }
 
   constructor() {
-    super({ key: "gameScene" });
-    this.menuSceneBackgroundImage = null;
-    this.startButton = null;
+    super({ key: "gameScene" })
+    this.menuSceneBackgroundImage = null
+    this.startButton = null
     this.scoreText = null
     this.score = 0
     this.scoreTextStyle = {
@@ -55,7 +55,7 @@ class GameScene extends Phaser.Scene {
    * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start()
    */
   init() {
-    this.cameras.main.setBackgroundColor("#ffffff");
+    this.cameras.main.setBackgroundColor("#000000")
   }
 
   //var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update })
@@ -67,7 +67,7 @@ class GameScene extends Phaser.Scene {
    * Use it to load assets
    */
   preload() {
-    console.log("Game Scene");
+    console.log("Game Scene")
     this.load.image("box", "./assets/clickBox.png")
     this.load.image("restartButton", "./assets/restartButton.png")
   }
@@ -78,7 +78,7 @@ class GameScene extends Phaser.Scene {
    * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start()
    */
   create(data) {
-    // this.physics.startSystem(Phaser.Physics.ARCADE);
+    // this.physics.startSystem(Phaser.Physics.ARCADE)
     this.createBox()
     this.scoreText = this.add.text(10, 10, "Score: ", + this.score.toString(), this.scoreTextStyle)
 
@@ -104,4 +104,4 @@ class GameScene extends Phaser.Scene {
   }
 }
 
-export default GameScene;
+export default GameScene
